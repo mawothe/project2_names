@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(white, #DD7879);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Barriecito', cursive;
+}
+
+.jumbotron {
+    margin-top: 40px;
+    background-color: #284D68;
+    color: #EAAD4D;
+}
+
+p {
+    color: white;
+}
+
+#bubble {
+    background-color: white;
+    height: 946px;
+}
+
+.btn { 
+    background-color: #DD7879;
+    border-color: #c96969;
+}
+
+.btn:hover {
+    background-color: #284D68;
+    border-color: #1f3c52;
+}
+
+.btn-active {
+    background-color: #b35b5b;
+    border-color: #8c4848;
+    -webkit-box-shadow: inset 0px 0px 5px #8c4848;
+     -moz-box-shadow: inset 0px 0px 5px #8c4848;
+          box-shadow: inset 0px 0px 5px #8c4848;
+}

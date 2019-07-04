@@ -465,15 +465,15 @@ def girl_names():
                      "Rhode Island": Rhode_Island,
                      "New York": New_York,
                      "Pennsylvania": Pennsylvania,
-                     "New Jersey": New_Jersey}
+                     "New Jersey": New_Jersey,
+                     "Delaware": Delaware,
+                     "Maryland": Maryland}
         for key, value in northeast.items():
             northeast_entry = {'name': key,
                                'children': value}
             northeast_list.append(northeast_entry)
         
         southeast = {"West Virginia": West_Virginia,
-                     "Delaware": Delaware,
-                     "Maryland": Maryland,
                      "Virginia": Virginia,
                      "Kentucky": Kentucky,
                      "Tennessee": Tennessee,
@@ -497,7 +497,7 @@ def girl_names():
                         {'name': 'Non-Contiguous', 'children': non_contiguous_list},
                         {'name': 'Pacific', 'children': pacific_list},
                         {'name': 'Rocky Mountains', 'children': rocky_mountain_list},
-                        {'name': 'Southwest', 'children': southeast_list},
+                        {'name': 'Southwest', 'children': southwest_list},
                         {'name': 'Midwest', 'children': midwest_list},
                         {'name': 'Northeast', 'children': northeast_list},
                         {'name': 'Southeast', 'children': southeast_list}
@@ -510,7 +510,7 @@ def boy_names():
     stmnt1 = 'Select state,gender,name,amount from names'
     df = pd.read_sql(stmnt1, db.session.bind)
 
-    Alaska = []
+    Alaska_b = []
     Alabama = []
     Arizona = []
     Arkansas = []
@@ -520,7 +520,7 @@ def boy_names():
     Delaware = []
     Florida = []
     Georgia = []
-    Hawaii = []
+    Hawaii_b = []
     Idaho = []
     Illinois = []
     Indiana = []
@@ -565,10 +565,10 @@ def boy_names():
     while i < len(df):
         for states in df:
             if (df['state'])[i] == 'AK' and (df['gender'])[i] == 'M':
-                ak_entry = {'name':list(df['name'])[i],
+                ak_entry_b = {'name':list(df['name'])[i],
                             'gender':list(df['gender'])[i],
                             'size':list(df['amount'])[i]}
-                Alaska.append(ak_entry)
+                Alaska_b.append(ak_entry_b)
                 break
             if (df['state'])[i] == 'AL' and (df['gender'])[i] == 'M':
                 al_entry = {'name':list(df['name'])[i],
@@ -625,10 +625,10 @@ def boy_names():
                 Georgia.append(ga_entry)
                 break
             if (df['state'])[i] == 'HI' and (df['gender'])[i] == 'M':
-                hi_entry = {'name':list(df['name'])[i],
+                hi_entry_b = {'name':list(df['name'])[i],
                             'gender':list(df['gender'])[i],
                             'size':list(df['amount'])[i]}
-                Hawaii.append(hi_entry)
+                Hawaii_b.append(hi_entry_b)
                 break
             if (df['state'])[i] == 'ID' and (df['gender'])[i] == 'M':
                 id_entry = {'name':list(df['name'])[i],
@@ -865,7 +865,7 @@ def boy_names():
                 Wyoming.append(wy_entry)
                 break
         
-        non_contiguous_list = []
+        non_contiguous_list_b = []
         pacific_list = []
         rocky_mountain_list = []
         southwest_list = []
@@ -873,11 +873,11 @@ def boy_names():
         southeast_list = []
         northeast_list = []
 
-        non_contiguous = {"Alaska":Alaska, "Hawaii":Hawaii}
-        for key, value in non_contiguous.items():
-            noncontiguous_entry = {'name': key,
+        non_contiguous_b = {"Alaska":Alaska_b, "Hawaii":Hawaii_b}
+        for key, value in non_contiguous_b.items():
+            noncontiguous_entry_b = {'name': key,
                                    'children': value}
-            non_contiguous_list.append(noncontiguous_entry)
+            non_contiguous_list_b.append(noncontiguous_entry_b)
 
         pacific = {"Washington": Washington, "Oregon": Oregon, "California": California}
         for key, value in pacific.items():
@@ -927,15 +927,15 @@ def boy_names():
                      "Rhode Island": Rhode_Island,
                      "New York": New_York,
                      "Pennsylvania": Pennsylvania,
-                     "New Jersey": New_Jersey}
+                     "New Jersey": New_Jersey,
+                     "Delaware": Delaware,
+                     "Maryland": Maryland}
         for key, value in northeast.items():
             northeast_entry = {'name': key,
                                'children': value}
             northeast_list.append(northeast_entry)
         
         southeast = {"West Virginia": West_Virginia,
-                     "Delaware": Delaware,
-                     "Maryland": Maryland,
                      "Virginia": Virginia,
                      "Kentucky": Kentucky,
                      "Tennessee": Tennessee,
@@ -956,10 +956,10 @@ def boy_names():
 
     return jsonify({'name': 'United States',
                     'children': [
-                        {'name': 'Non-Contiguous', 'children': non_contiguous_list},
+                        {'name': 'Non-Contiguous', 'children': non_contiguous_list_b},
                         {'name': 'Pacific', 'children': pacific_list},
                         {'name': 'Rocky Mountains', 'children': rocky_mountain_list},
-                        {'name': 'Southwest', 'children': southeast_list},
+                        {'name': 'Southwest', 'children': southwest_list},
                         {'name': 'Midwest', 'children': midwest_list},
                         {'name': 'Northeast', 'children': northeast_list},
                         {'name': 'Southeast', 'children': southeast_list}

@@ -4,8 +4,8 @@ var svg = d3.select("svg"),
     g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
 var color = d3.scaleLinear()
-    .domain([-1, 5])
-    .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
+    .domain([-1, 2])
+    .range(["#284D68", "#DD7879"])
     .interpolate(d3.interpolateHcl);
 
 var pack = d3.pack()
@@ -29,6 +29,9 @@ function createCircles(selectedGender) {
         nodes = pack(root).descendants(),
         view;
 
+        console.log("Showing node");
+        console.log(nodes);
+
     var circle = g.selectAll("circle")
       .data(nodes)
       .enter().append("circle")
@@ -42,9 +45,12 @@ function createCircles(selectedGender) {
         .attr("class", "label")
         .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
         .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
+        .style("fill", "#002C33")
         .text(function(d) { return d.data.name; });
 
     var node = g.selectAll("circle, text");
+
+  
 
     svg
         .style("background", color(-1))
@@ -80,18 +86,22 @@ createCircles(selectedGender);
 
 d3.select("#girls")
   .on("click", function() {
+    d3.selectAll("text").remove();
+    d3.selectAll("circle").remove();
     selectedGender = "/girls";
     createCircles(selectedGender);
     d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
     d3.select("#boys").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
-    return selectedGender;
+    
   });
 
 d3.select("#boys")
   .on("click", function() {
+    d3.selectAll("text").remove();
+    d3.selectAll("circle").remove();
     selectedGender = "/boys";
     createCircles(selectedGender);
     d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
     d3.select("#girls").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
-    return selectedGender;
+    
   });

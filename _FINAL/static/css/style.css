@@ -55,7 +55,7 @@ p {
   }
 
 .node:hover {
-    stroke: #000;
+    stroke: #002C33;
     stroke-width: 1.5px;
   }
 
@@ -64,7 +64,8 @@ p {
   }
 
 .label {
-    font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 18px 'Montserrat', sans-serif;
+    font-weight: bold;
     text-anchor: middle;
     text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
   }

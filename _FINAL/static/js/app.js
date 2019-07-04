@@ -14,19 +14,6 @@ var pack = d3.pack()
 
 selectedGender = "/girls";
 
-d3.select("#girls")
-  .on("click", function(data) {
-    selectGender = "/girls";
-    createCircles(selectedGender);
-  });
-
-d3.select("#boys")
-  .on("click", function(data) {
-    selectedGender = "/boys";
-    createCircles(selectedGender);
-  });
-
-
 function createCircles(selectedGender) {
     
   d3.json(selectedGender, function(error, root) {
@@ -57,7 +44,7 @@ function createCircles(selectedGender) {
         .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
         .text(function(d) { return d.data.name; });
 
-    var node = g.selectAll("circle,text");
+    var node = g.selectAll("circle, text");
 
     svg
         .style("background", color(-1))
@@ -90,3 +77,21 @@ function createCircles(selectedGender) {
 }
 
 createCircles(selectedGender);
+
+d3.select("#girls")
+  .on("click", function() {
+    selectedGender = "/girls";
+    createCircles(selectedGender);
+    d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
+    d3.select("#boys").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
+    return selectedGender;
+  });
+
+d3.select("#boys")
+  .on("click", function() {
+    selectedGender = "/boys";
+    createCircles(selectedGender);
+    d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
+    d3.select("#girls").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
+    return selectedGender;
+  });

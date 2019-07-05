@@ -8,6 +8,7 @@
   <title>Project Two Example</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/magic.css">
   <link href="https://fonts.googleapis.com/css?family=Barriecito|Montserrat:400,700&display=swap" rel="stylesheet">
 </head>
  
@@ -28,7 +29,7 @@
         </div>
       </div>
     <div class="col-md-10">
-      <div id="bubble">
+      <div id="bubble" class="magictime">
         <svg width="946" height="946"></svg>
       </div>
     </div>
@@ -36,9 +37,8 @@
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="../static/js/app.js"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
+  <script type="text/javascript" src="../static/js/app.js"></script>
+  
 </body>
 
 </html>

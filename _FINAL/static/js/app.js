@@ -84,24 +84,52 @@ function createCircles(selectedGender) {
 
 createCircles(selectedGender);
 
-d3.select("#girls")
+//Magic transitions
+function girl_entrance () {
+  const selector = document.querySelector('#bubble');
+  if (selector.classList == 'magictime spaceInRight') {
+    selector.classList.remove('spaceInRight');
+    selector.classList.add('spaceInLeft');
+  }
+  else {
+    selector.classList.add('spaceInLeft');
+  }  
+  };
+  
+  
+  function boy_entrance () {
+  const selector = document.querySelector('#bubble')
+  if (selector.classList == 'magictime spaceInLeft') {
+    selector.classList.remove('spaceInLeft');
+    (selector.classList.add('spaceInRight'));
+  }
+  else {
+    selector.classList.add('spaceInRight');
+  }
+  };
+  
+  //Button click methods
+  d3.select("#girls")
   .on("click", function() {
-    d3.selectAll("text").remove();
-    d3.selectAll("circle").remove();
-    selectedGender = "/girls";
-    createCircles(selectedGender);
-    d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
-    d3.select("#boys").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
-    
+  d3.selectAll("text").remove();
+  d3.selectAll("circle").remove();
+  setTimeout(girl_entrance, 500);
+  selectedGender = "/girls";
+  createCircles(selectedGender);
+  d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
+  d3.select("#boys").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
+  
   });
-
-d3.select("#boys")
+  
+  
+  d3.select("#boys")
   .on("click", function() {
-    d3.selectAll("text").remove();
-    d3.selectAll("circle").remove();
-    selectedGender = "/boys";
-    createCircles(selectedGender);
-    d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
-    d3.select("#girls").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
-    
+  d3.selectAll("text").remove();
+  d3.selectAll("circle").remove();
+  setTimeout(boy_entrance, 500);
+  selectedGender = "/boys";
+  createCircles(selectedGender);
+  d3.select(this).attr("class","btn btn-primary btn-lg btn-block btn-active");
+  d3.select("#girls").attr("class","btn btn-primary btn-lg btn-block btn-inactive");
+  
   });
